@@ -1,0 +1,35 @@
+{
+  "name": "react-search-dogs",
+  "version": "1.0.0",
+  "description": "Example search dogs web app with ReactJS",
+  "main": "public/index.html",
+  "scripts": {
+    "serve": "servor public index.html 3031 --reload --browse",
+    "start": "node scripts/start.js & npm run serve",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://fnortes@github.com/fnortes/react-search-dogs.git"
+  },
+  "keywords": [
+    "dogs",
+    "search",
+    "react"
+  ],
+  "author": "Francisco Nortes Belmonte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fnortes/react-search-dogs/issues"
+  },
+  "homepage": "https://github.com/fnortes/react-search-dogs#readme",
+  "devDependencies": {
+    "esbuild": "^0.9.3",
+    "servor": "^4.0.2"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
