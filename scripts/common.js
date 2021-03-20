@@ -11,7 +11,7 @@ const defaultConfig = (environment) => {
     },
     target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
     format: 'esm',
-    splitting: true,
+    splitting: true
     minify: isProMode,
     sourcemap: !isProMode,
     watch: isProMode
