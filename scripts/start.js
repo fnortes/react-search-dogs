@@ -1,7 +1,7 @@
-const { defaultConfig } = require("./common");
+const { defaultConfig } = require('./common')
 
-const environment = "development";
+const environment = 'development'
 
-require("esbuild")
+require('esbuild')
   .build(defaultConfig(environment))
-  .catch(() => process.exit(1));
+  .catch(() => process.exit(1))

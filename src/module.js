@@ -1,9 +1,9 @@
 export function sayHi() {
   const persona = {
-    name: "Fran",
-  };
+    name: 'Fran'
+  }
 
-  const mensaje = persona?.name;
+  const mensaje = persona?.name
 
-  return mensaje;
+  return mensaje
 }
