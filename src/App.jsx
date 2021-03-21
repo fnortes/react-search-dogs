@@ -6,7 +6,7 @@ import './styles.css'
 export default function App() {
   return (
     <h1>
-      Hol {sayHi()} en la version {version}
+      Hola {sayHi()} en la version {version}
     </h1>
   )
 }

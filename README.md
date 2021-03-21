@@ -23,7 +23,7 @@ npm run start
 - Ejecutar ESLint y Prettier para limpiar el código:
 
 ```bash
-npm run start
+npm run lint
 ```
 
 - Generar la versión distribuible del proyecto, en modo producción, que estará disponible en el directorio `/public`, tras ejectuar:
@@ -45,7 +45,6 @@ npm run serve
 - Añadir JsDocs para documentación de componentes.
 - Usar carga de componentes Lazy
 - Añadir soporte multi-idioma
-- Añadir esLint y Prettier
 
 ## Elegido [esbuild](https://esbuild.github.io/) como Bundler para el proyecto:
 

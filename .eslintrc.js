@@ -27,6 +27,8 @@ module.exports = {
   ignorePatterns: ['**/bundle/*.js'],
   rules: {
     // 'react/react-in-jsx-scope': RULES.OFF,
-    'react/prop-types': RULES.OFF
+    'react/prop-types': RULES.OFF,
+    'no-use-before-define': RULES.OFF,
+    '@typescript-eslint/no-use-before-define': [RULES.ERROR]
   }
 }
