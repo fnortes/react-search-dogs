@@ -1,0 +1,9 @@
+.App-dog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  align-items: center;
+  min-height: 100vh;
+  list-style: none;
+  padding: 0;
+}
