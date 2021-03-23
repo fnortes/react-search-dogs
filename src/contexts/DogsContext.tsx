@@ -11,10 +11,10 @@ interface ContextProps {
 const Context = React.createContext({} as ContextProps)
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
-export const DogsContextProvider:FC<Props> = ({ children }) => {
+export const DogsContextProvider: FC<Props> = ({ children }) => {
   const [breed, setBreed] = useState<string>('-1')
   const [breeds, setBreeds] = useState<Breed[]>([])
 

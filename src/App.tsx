@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
-import { Route, Switch } from 'wouter';
+import React, { Suspense } from 'react'
+import { Route, Switch } from 'wouter'
 import { DogsContextProvider } from './contexts/DogsContext'
-import './App.css';
-import Spinner from './components/Spinner';
+import './App.css'
+import Spinner from './components/Spinner'
 
 // Load pages in lazy mode.
 const LazyHome = React.lazy(() => import('./pages/Home'))
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <section className="App-content">
-      <DogsContextProvider>
+        <DogsContextProvider>
           <Suspense fallback={<Spinner loading />}>
             <Switch>
               <Route component={LazyHome} path="/" />
@@ -22,9 +22,9 @@ function App() {
             </Switch>
           </Suspense>
         </DogsContextProvider>
-        </section>
+      </section>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

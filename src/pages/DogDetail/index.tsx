@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { DefaultParams, useLocation } from 'wouter'
 import DogImg from '../../components/Dog'
 import checkImage from '../../services/checkImage'
@@ -30,7 +30,6 @@ const DogDetail: FC<Props> = ({ params }) => {
   }
 
   useEffect(() => {
-    console.log('Llama a ver si existe la imagen');
     checkImage(dog.img).then((res) => {
       if (!res) setLocation('/404')
     })

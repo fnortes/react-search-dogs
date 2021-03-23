@@ -6,7 +6,7 @@ export interface DogsHook {
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   error: string | null
-  setError: React.Dispatch<React.SetStateAction<string|null>>
+  setError: React.Dispatch<React.SetStateAction<string | null>>
   breed: string
   setBreed: React.Dispatch<React.SetStateAction<string>>
   breeds: Breed[]
@@ -15,7 +15,7 @@ export interface DogsHook {
 
 export const useDogs = (): DogsHook => {
   const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string|null>(null)
+  const [error, setError] = useState<string | null>(null)
   const { breed, setBreed, breeds, setBreeds } = useContext(DogsContext)
 
   return {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import DogImg from '../../../../components/Dog'
 import { Dog } from '../../../../services/interfaces'
-import "./styles.css"
+import './styles.css'
 
 interface Props {
   dogs: Dog[]

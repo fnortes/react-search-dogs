@@ -31,14 +31,13 @@ const SearchForm: FC<Props> = ({ onSubmit }) => {
       setLoading(true)
       setError(null)
 
-      console.log('Llama a obtener las razas');
       getBreeds()
         .then(setBreeds)
         .catch((err: Error) => {
           setError(err.message)
         })
         .finally(() => {
-          // setLoading(false)
+          setLoading(false)
         })
     }
   }, [setBreeds, setError, setLoading, breeds.length])
