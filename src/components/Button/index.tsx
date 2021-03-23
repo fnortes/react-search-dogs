@@ -1,5 +1,6 @@
-import React, { FC, ReactChild, ReactChildren } from 'react'
+import { FC, ReactChild, ReactChildren } from 'react'
 import { Link } from 'wouter'
+import './styles.css'
 
 interface Props {
   href?: string

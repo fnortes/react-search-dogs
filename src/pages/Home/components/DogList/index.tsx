@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import DogImg from '../../../../components/Dog'
 import { Dog } from '../../../../services/interfaces'
 import './styles.css'

@@ -1,10 +1,11 @@
-import React, {
+import {
   BaseSyntheticEvent,
   FC,
   FormEvent,
   FormEventHandler,
   useEffect
 } from 'react'
+import { useTranslation } from 'react-i18next'
 import Button from '../../../../components/Button'
 import Spinner from '../../../../components/Spinner'
 import { useDogs } from '../../../../hooks/useDogs'
@@ -25,6 +26,8 @@ const SearchForm: FC<Props> = ({ onSubmit }) => {
     breeds,
     setBreeds
   } = useDogs()
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (breeds.length === 0) {
@@ -53,7 +56,7 @@ const SearchForm: FC<Props> = ({ onSubmit }) => {
   }
 
   return loading ? (
-    <Spinner loading={loading} text="Cargando razas ..." />
+    <Spinner loading={loading} text={t('home.loadingBreeds')} />
   ) : error !== null ? (
     <div>{error}</div>
   ) : (
@@ -61,14 +64,16 @@ const SearchForm: FC<Props> = ({ onSubmit }) => {
       <label>
         <select value={breed} onChange={handleChange}>
           <option disabled value="-1">
-            Seleccione una raza
+            {t('home.selectBreed')}
           </option>
           {breeds.map((b) => (
             <option key={b.name}>{b.name}</option>
           ))}
         </select>
       </label>
-      <Button>Buscar</Button>
+      <Button>
+        <span>{t('home.search')}</span>
+      </Button>
     </form>
   )
 }

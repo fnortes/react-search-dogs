@@ -1,5 +1,7 @@
 import { FC, useEffect } from 'react'
 import { DefaultParams, useLocation } from 'wouter'
+import { useTranslation } from 'react-i18next'
+import Button from '../../components/Button'
 import DogImg from '../../components/Dog'
 import checkImage from '../../services/checkImage'
 import { Dog } from '../../services/interfaces'
@@ -16,6 +18,7 @@ interface Props {
 
 const DogDetail: FC<Props> = ({ params }) => {
   const [, setLocation] = useLocation()
+  const { t } = useTranslation()
 
   const dog: Dog = {
     img: `https://images.dog.ceo/breeds/${params.breed}/${params.id}.${params.ext}`,
@@ -37,6 +40,10 @@ const DogDetail: FC<Props> = ({ params }) => {
 
   return (
     <section className="App-page">
+      <h1>{t('dogDetail.title')}</h1>
+      <Button href="/">
+        <span>{t('dogDetail.backToHome')}</span>
+      </Button>
       <DogImg dog={dog} />
     </section>
   )
