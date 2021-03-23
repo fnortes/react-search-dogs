@@ -40,11 +40,12 @@ npm run serve
 
 ## Notas de cosas a añadir:
 
-- Añadir Typescript
 - Utilizar Saga observable.
 - Añadir JsDocs para documentación de componentes.
 - Usar carga de componentes Lazy
 - Añadir soporte multi-idioma
+- Usar Memo
+- Añadir tests unitarios
 
 ## Elegido [esbuild](https://esbuild.github.io/) como Bundler para el proyecto:
 

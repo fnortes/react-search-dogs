@@ -3,13 +3,14 @@ const defaultConfig = (environment) => {
   const isProMode = environment === 'production'
 
   return {
-    entryPoints: ['src/index.jsx'],
+    entryPoints: ['src/index.tsx'],
     outdir: 'public/bundle',
     bundle: true,
     define: {
       'process.env.NODE_ENV': `"${environment}"`
     },
-    target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+    // target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+    target: ['chrome58', 'firefox57', 'safari11', 'edge18'],
     format: 'esm',
     splitting: true,
     minify: isProMode,
