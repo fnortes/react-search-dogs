@@ -1,117 +1,57 @@
-# Getting Started with Create React App
+# Buscador de perros con [Create React App](https://github.com/facebook/create-react-app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ejemplo de aplicación de búsqueda de perros por raza, en React con Typescript, partiendo de [Create React App](https://github.com/facebook/create-react-app) 👍
 
-## Available Scripts
+Puedes leer más sobre este constructor de arquetipos de proyectos SPA con React en [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-# react-search-dogs
-
-Ejemplo de aplicación de búsqueda de perros por raza, en React.
-
-Desarrollado 100% desde cero 👍
+También puedes revisar más información de React en [React documentation](https://reactjs.org/).
 
 ## Empezando con el proyecto:
 
-> Se recomienda la instalación de las extensiones de VSC [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) y [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+> Se recomienda la instalación de la extensión de VSC [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-- Tras clonar o decargar el código fuente, lanzar el siguiente comando desde la terminal para instalar todas las dependencias del proyecto:
-
-```bash
-npm i
-```
-
-- Arrancar el proyecto en local, en modo desarrollo:
+- Tras clonar o decargar el código fuente, lanzar el siguiente comando desde la terminal para instalar todas las dependencias del proyecto, pudiendo utilizar `npm` o `yarn`:
 
 ```bash
-npm run start
+yarn install
 ```
 
-- Ejecutar ESLint y Prettier para limpiar el código:
+- Arrancar el proyecto en local, en modo desarrollo. Puedes abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador. La página se refrescará cada vez que se modifiquen los ficheros. También se podrán ver los posibles errores de código por consola.
 
 ```bash
-npm run lint
+yarn start
 ```
 
-- Generar la versión distribuible del proyecto, en modo producción, que estará disponible en el directorio `/public`, tras ejectuar:
+- Para ejecutar Prettier en todo el código del proyecto y guardar sobrescribir los ficheros formateados:
 
 ```bash
-npm run build
+yarn format
 ```
 
-- Tras ejecutar el comando anterior, si se quiere levantar un servidor en local para probar la versión de producción, ejecutar:
+- Generar la versión distribuible del proyecto, para producción, que estará disponible en el directorio `/build`, tras ejectuar:
 
 ```bash
-npm run serve
+yarn build
 ```
 
-## Notas de cosas a añadir:
+- Correr los tests del proyecto en modo interactivo de auto refresco si se modifican los ficheros del proyecto.:
 
-- Utilizar Saga observable.
+```bash
+yarn test
+```
 
-## Elegido [esbuild](https://esbuild.github.io/) como Bundler para el proyecto:
+> Puedes ver más información en [running tests](https://facebook.github.io/create-react-app/docs/running-tests) .
 
-Como dicen en su propia web, [esbuild](https://esbuild.github.io/) "is an extremely fast JavaScript bundler":
+## Proyecto en producción
 
-![An extremely fast JavaScript bundler](https://user-images.githubusercontent.com/10447789/111673217-0ab41280-881b-11eb-90da-edebb6c477b0.jpg)
+Como sistema de integración continua y desplegue en entorno productivo se ha utilizado [Vercel](https://vercel.com/):
 
-Ciertamente, haciendo pruebas en local llega a ser hasta 100 veces más rápido que webpack.
+- Enlace a la App: https://react-search-dogs.vercel.app/
+- Conectado con github, de forma que cuando se hagan commits sobre la rama master, se lanzará un auto-despliegue.
 
-Esbuild no tiene hasing
+## Extras añadidos sobre [Create React App](https://github.com/facebook/create-react-app)
 
-## Elegido [servor](https://github.com/lukejacksonn/servor) como servidor de ficheros:
-
-Entre sus características:
-
-🗂 Sirve contenido estático como scripts, estilos o imágenes.
-
-♻️ Recarga el navegador cuando los se añaden, eliminan o modifcian ficheros del proyecto.
-
-🗃 Abre una pestaña del navegador y el editor de código para un inicio rápido.
-
-## Uso de [ESLint](https://eslint.org/) y [Prettier](https://prettier.io/):
-
-- ESLint para encontrar y corregir problemas en el código Javascript.
-- Prettier como formateador de código.
-- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) para que ESLint y Prettier no entren en conflicto y ESLint ceda el formateo de código a Prettier.
-- [lint-staged](https://github.com/okonet/lint-staged#readme), paquete que permite usar EsLint y Prettier para validar los commits, mediante [husky](https://github.com/typicode/husky).
+- Uso de [Prettier](https://prettier.io/), como formateador de código.
+- Añadido [wouter](https://github.com/molefrog/wouter), como enrutador para React (Elegido por tener un peso menor a [react-router](https://github.com/ReactTraining/react-router) y mayor facilidad de uso)
+- Añadido [react-i18next](https://react.i18next.com/), para soporte multi idioma.
+- Añadido [react-helmet](https://github.com/nfl/react-helmet#readme), para optimización del SEO de la Web.
