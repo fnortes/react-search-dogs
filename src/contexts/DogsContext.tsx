@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useState } from 'react'
-import { Breed } from '../services/interfaces'
+import { Breed } from 'services/interfaces'
 
 interface ContextProps {
   breed: string

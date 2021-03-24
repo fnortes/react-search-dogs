@@ -1,12 +1,12 @@
 import { FC, useEffect } from 'react'
 import { DefaultParams, useLocation } from 'wouter'
 import { useTranslation } from 'react-i18next'
-import Button from '../../components/Button'
-import DogImg from '../../components/Dog'
-import checkImage from '../../services/checkImage'
-import { Dog } from '../../services/interfaces'
-import './styles.css'
 import { Helmet } from 'react-helmet'
+import Button from 'components/Button'
+import DogImg from 'components/Dog'
+import checkImage from 'services/checkImage'
+import { Dog } from 'services/interfaces'
+import './styles.css'
 
 interface Params extends DefaultParams {
   breed: string

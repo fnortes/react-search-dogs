@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Dog } from '../../services/interfaces'
-import Button from '../Button'
+import { Dog } from 'services/interfaces'
+import Button from 'components/Button'
 import './styles.css'
 
 interface Props {

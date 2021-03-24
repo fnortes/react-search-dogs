@@ -1,10 +1,10 @@
 import { FC, lazy, Suspense, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet'
-import Spinner from '../../components/Spinner'
-import { useDogs } from '../../hooks/useDogs'
-import { getDogs } from '../../services/getDogs'
-import { Breed, Dog } from '../../services/interfaces'
+import Spinner from 'components/Spinner'
+import { useDogs } from 'hooks/useDogs'
+import { getDogs } from 'services/getDogs'
+import { Breed, Dog } from 'services/interfaces'
 import SearchForm from './components/Form'
 
 /**

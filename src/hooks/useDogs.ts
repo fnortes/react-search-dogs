@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import DogsContext from '../contexts/DogsContext'
-import { Breed } from '../services/interfaces'
+import DogsContext from 'contexts/DogsContext'
+import { Breed } from 'services/interfaces'
 
 export interface DogsHook {
   loading: boolean

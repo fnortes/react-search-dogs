@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
-import DogImg from '../../../../components/Dog'
-import { Dog } from '../../../../services/interfaces'
+import DogImg from 'components/Dog'
+import { Dog } from 'services/interfaces'
 import './styles.css'
 
 interface Props {

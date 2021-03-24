@@ -1,14 +1,14 @@
 import React, { Suspense } from 'react'
 import { Route, Switch } from 'wouter'
 import { useTranslation } from 'react-i18next'
-import { DogsContextProvider } from './contexts/DogsContext'
-import Spinner from './components/Spinner'
+import { DogsContextProvider } from 'contexts/DogsContext'
+import Spinner from 'components/Spinner'
 import './App.css'
 
 // Load pages in lazy mode.
-const LazyHome = React.lazy(() => import('./pages/Home'))
-const LazyDogDetail = React.lazy(() => import('./pages/DogDetail'))
-const LazyErrorPage = React.lazy(() => import('./pages/ErrorPage'))
+const LazyHome = React.lazy(() => import('pages/Home'))
+const LazyDogDetail = React.lazy(() => import('pages/DogDetail'))
+const LazyErrorPage = React.lazy(() => import('pages/ErrorPage'))
 
 function App() {
   const { t } = useTranslation()

@@ -6,10 +6,10 @@ import {
   useEffect
 } from 'react'
 import { useTranslation } from 'react-i18next'
-import Button from '../../../../components/Button'
-import Spinner from '../../../../components/Spinner'
-import { useDogs } from '../../../../hooks/useDogs'
-import { getBreeds } from '../../../../services/getBreeds'
+import Button from 'components/Button'
+import Spinner from 'components/Spinner'
+import { useDogs } from 'hooks/useDogs'
+import { getBreeds } from 'services/getBreeds'
 
 interface Props {
   onSubmit: (breed: string) => void
