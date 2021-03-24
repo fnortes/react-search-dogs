@@ -88,7 +88,6 @@ npm run serve
 ## Notas de cosas a añadir:
 
 - Utilizar Saga observable.
-- Añadir tests unitarios
 
 ## Elegido [esbuild](https://esbuild.github.io/) como Bundler para el proyecto:
 

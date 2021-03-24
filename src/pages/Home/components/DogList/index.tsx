@@ -8,9 +8,8 @@ interface Props {
 }
 
 const DogList: FC<Props> = ({ dogs }) => {
-  console.log('Se reenderiza el DogList')
   return (
-    <ul className="App-dog-list">
+    <ul data-testid="list" className="App-dog-list">
       {dogs.map((dog) => (
         <li key={dog.id.name}>
           <DogImg dog={dog} withLink />

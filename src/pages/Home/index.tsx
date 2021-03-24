@@ -1,5 +1,6 @@
 import { FC, lazy, Suspense, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet'
 import Spinner from '../../components/Spinner'
 import { useDogs } from '../../hooks/useDogs'
 import { getDogs } from '../../services/getDogs'
@@ -37,7 +38,12 @@ const Home: FC = () => {
 
   return (
     <section className="App-page">
-      <h1>{t('home.title')}</h1>
+      <Helmet>
+        <title>
+          {t('home.title')} | {t('common.title')}
+        </title>
+      </Helmet>
+      <h2>{t('home.title')}</h2>
       <SearchForm onSubmit={handleSubmit} />
       {loading ? (
         <Spinner loading={loading} text={t('home.loadingDogs')} />

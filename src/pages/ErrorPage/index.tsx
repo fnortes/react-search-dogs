@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
 const ErrorPage: React.FC = () => {
@@ -6,7 +7,12 @@ const ErrorPage: React.FC = () => {
 
   return (
     <section className="App-page">
-      <h1>{t('errorPage.title')}</h1>
+      <Helmet>
+        <title>
+          {t('errorPage.title')} | {t('common.title')}
+        </title>
+      </Helmet>
+      <h2>{t('errorPage.title')}</h2>
     </section>
   )
 }

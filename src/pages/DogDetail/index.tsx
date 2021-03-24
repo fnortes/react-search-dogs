@@ -5,6 +5,8 @@ import Button from '../../components/Button'
 import DogImg from '../../components/Dog'
 import checkImage from '../../services/checkImage'
 import { Dog } from '../../services/interfaces'
+import './styles.css'
+import { Helmet } from 'react-helmet'
 
 interface Params extends DefaultParams {
   breed: string
@@ -40,9 +42,18 @@ const DogDetail: FC<Props> = ({ params }) => {
 
   return (
     <section className="App-page">
-      <h1>{t('dogDetail.title')}</h1>
-      <Button href="/">{t('dogDetail.backToHome')}</Button>
-      <DogImg dog={dog} />
+      <Helmet>
+        <title>
+          {dog.id.name} | {t('common.title')}
+        </title>
+      </Helmet>
+      <h2>{t('dogDetail.title')}</h2>
+      <div className="App-back">
+        <Button href="/">{t('dogDetail.backToHome')}</Button>
+      </div>
+      <div>
+        <DogImg dog={dog} />
+      </div>
     </section>
   )
 }
