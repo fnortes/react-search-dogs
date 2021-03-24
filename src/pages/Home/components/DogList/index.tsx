@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import DogImg from '../../../../components/Dog'
 import { Dog } from '../../../../services/interfaces'
 import './styles.css'
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const DogList: FC<Props> = ({ dogs }) => {
+  console.log('Se reenderiza el DogList')
   return (
     <ul className="App-dog-list">
       {dogs.map((dog) => (
@@ -19,4 +20,12 @@ const DogList: FC<Props> = ({ dogs }) => {
   )
 }
 
-export default DogList
+/**
+ * Sólo cuando cambien los datos de los dogs, queremos reenderizar el componente.
+ * Si tras hacer una primera busqueda por una raza, se vuelve a lanzar la misma
+ * búsqueda de nuevo, este componente no vuelve a renderizarse, en caso de que
+ * el servicio de perros devuelva los mismos resultados.
+ */
+export default memo(DogList, (prevProps, nextProps) => {
+  return JSON.stringify(prevProps.dogs) === JSON.stringify(nextProps.dogs)
+})

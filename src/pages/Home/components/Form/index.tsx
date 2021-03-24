@@ -71,9 +71,7 @@ const SearchForm: FC<Props> = ({ onSubmit }) => {
           ))}
         </select>
       </label>
-      <Button>
-        <span>{t('home.search')}</span>
-      </Button>
+      <Button>{t('home.search')}</Button>
     </form>
   )
 }

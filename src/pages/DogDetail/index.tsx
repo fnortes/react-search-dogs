@@ -41,9 +41,7 @@ const DogDetail: FC<Props> = ({ params }) => {
   return (
     <section className="App-page">
       <h1>{t('dogDetail.title')}</h1>
-      <Button href="/">
-        <span>{t('dogDetail.backToHome')}</span>
-      </Button>
+      <Button href="/">{t('dogDetail.backToHome')}</Button>
       <DogImg dog={dog} />
     </section>
   )

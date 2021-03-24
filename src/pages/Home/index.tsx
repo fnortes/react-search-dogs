@@ -6,6 +6,10 @@ import { getDogs } from '../../services/getDogs'
 import { Breed, Dog } from '../../services/interfaces'
 import SearchForm from './components/Form'
 
+/**
+ * Se carga el componente del listado de perros de forma lazy, sólo cuando
+ * se haga la primera consulta y se obtengan correctamente los resultados.
+ */
 const LazyDogList = lazy(() => import('./components/DogList'))
 
 const Home: FC = () => {
@@ -39,9 +43,10 @@ const Home: FC = () => {
         <Spinner loading={loading} text={t('home.loadingDogs')} />
       ) : error !== null ? (
         <div>{error}</div>
-      ) : (
+      ) : null}
+      {dogs.length > 0 && (
         <Suspense fallback={<span>{t('common.loading')}</span>}>
-          {dogs.length > 0 && <LazyDogList dogs={dogs} />}
+          <LazyDogList dogs={dogs} />
         </Suspense>
       )}
     </section>

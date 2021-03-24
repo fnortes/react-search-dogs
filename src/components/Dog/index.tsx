@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Dog } from '../../services/interfaces'
 import Button from '../Button'
 import './styles.css'
