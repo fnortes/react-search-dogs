@@ -2,9 +2,9 @@
 
 Ejemplo de aplicación de búsqueda de perros por raza, en React con Typescript, partiendo de [Create React App](https://github.com/facebook/create-react-app) 👍
 
-Puedes leer más sobre este constructor de arquetipos de proyectos SPA con React en [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Se puede leer más sobre este constructor de arquetipos de proyectos SPA con React en [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-También puedes revisar más información de React en [React documentation](https://reactjs.org/).
+También se puede revisar más información de React en [React documentation](https://reactjs.org/).
 
 ## Empezando con el proyecto:
 
@@ -16,13 +16,13 @@ También puedes revisar más información de React en [React documentation](http
 yarn install
 ```
 
-- Arrancar el proyecto en local, en modo desarrollo. Puedes abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador. La página se refrescará cada vez que se modifiquen los ficheros. También se podrán ver los posibles errores de código por consola.
+- Arrancar el proyecto en local, en modo desarrollo. Se puede abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador. La página se refrescará cada vez que se modifiquen los ficheros. También se podrán ver los posibles errores de código por consola.
 
 ```bash
 yarn start
 ```
 
-- Para ejecutar Prettier en todo el código del proyecto y guardar sobrescribir los ficheros formateados:
+- Para ejecutar Prettier en todo el código del proyecto y sobrescribir los ficheros correctamente formateados:
 
 ```bash
 yarn format
@@ -34,17 +34,17 @@ yarn format
 yarn build
 ```
 
-- Correr los tests del proyecto en modo interactivo de auto refresco si se modifican los ficheros del proyecto.:
+- Correr los tests del proyecto en modo interactivo de auto refresco si se modifican los ficheros del proyecto:
 
 ```bash
 yarn test
 ```
 
-> Puedes ver más información en [running tests](https://facebook.github.io/create-react-app/docs/running-tests) .
+> Se puede ver más información en [running tests](https://facebook.github.io/create-react-app/docs/running-tests) .
 
 ## Proyecto en producción
 
-Como sistema de integración continua y desplegue en entorno productivo se ha utilizado [Vercel](https://vercel.com/):
+Como sistema de integración continua y despliegue en entorno productivo se ha utilizado [Vercel](https://vercel.com/):
 
 - Enlace a la App: https://react-search-dogs.vercel.app/
 - Conectado con github, de forma que cuando se hagan commits sobre la rama master, se lanzará un auto-despliegue.
