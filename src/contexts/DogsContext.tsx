@@ -1,30 +1,78 @@
-import React, { FC, ReactNode, useState } from 'react'
-import { Breed } from 'services/interfaces'
+import React, { FC, useEffect, useReducer } from 'react'
+import { getBreeds } from 'services/getBreeds'
+import { Breed, Dog } from 'services/interfaces'
+import { INITIAL_STATE } from './constants'
+import { reducer } from './reducer'
+import { ACTIONS } from './interfaces'
 
-interface ContextProps {
+export interface ContextProps {
   breed: string
-  setBreed: React.Dispatch<React.SetStateAction<string>>
   breeds: Breed[]
-  setBreeds: React.Dispatch<React.SetStateAction<Breed[]>>
+  dogs: Dog[]
+  loading: boolean
+  error: string | null
+  updateBreed: (breed: Breed['name']) => void
+  updateBreeds: (breeds: Breed[]) => void
+  updateDogs: (dogs: Dog[]) => void
+  updateLoading: (loading: boolean) => void
+  updateError: (error: string | null) => void
 }
 
 const Context = React.createContext({} as ContextProps)
 
-interface Props {
-  children: ReactNode
-}
+export const DogsContextProvider: FC = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+  const { breed, breeds, dogs, loading, error } = state
 
-export const DogsContextProvider: FC<Props> = ({ children }) => {
-  const [breed, setBreed] = useState<string>('-1')
-  const [breeds, setBreeds] = useState<Breed[]>([])
+  const updateBreed = (breed: Breed['name']) => {
+    dispatch({ type: ACTIONS.UPDATE_BREED, payload: { breed } })
+  }
+
+  const updateBreeds = (breeds: Breed[]) => {
+    dispatch({ type: ACTIONS.UPDATE_BREEDS, payload: { breeds } })
+  }
+
+  const updateDogs = (dogs: Dog[]) => {
+    dispatch({ type: ACTIONS.UPDATE_DOGS, payload: { dogs } })
+  }
+
+  const updateLoading = (loading: boolean) => {
+    dispatch({ type: ACTIONS.UPDATE_LOADING, payload: { loading } })
+  }
+
+  const updateError = (error: string | null) => {
+    dispatch({ type: ACTIONS.UPDATE_ERROR, payload: { error } })
+  }
+
+  useEffect(() => {
+    if (breeds.length === 0) {
+      updateLoading(true)
+      updateError(null)
+
+      getBreeds()
+        .then(updateBreeds)
+        .catch((err: Error) => {
+          updateError(err.message)
+        })
+        .finally(() => {
+          updateLoading(false)
+        })
+    }
+  }, [breeds.length])
 
   return (
     <Context.Provider
       value={{
         breed,
-        setBreed,
         breeds,
-        setBreeds
+        dogs,
+        loading,
+        error,
+        updateBreed,
+        updateBreeds,
+        updateDogs,
+        updateLoading,
+        updateError
       }}
     >
       {children}

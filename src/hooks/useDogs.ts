@@ -1,31 +1,52 @@
-import React, { useContext, useState } from 'react'
+import { useContext } from 'react'
 import DogsContext from 'contexts/DogsContext'
-import { Breed } from 'services/interfaces'
+import { Breed, Dog } from 'services/interfaces'
+import { getDogs } from 'services/getDogs'
 
 export interface DogsHook {
-  loading: boolean
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  error: string | null
-  setError: React.Dispatch<React.SetStateAction<string | null>>
   breed: string
-  setBreed: React.Dispatch<React.SetStateAction<string>>
   breeds: Breed[]
-  setBreeds: React.Dispatch<React.SetStateAction<Breed[]>>
+  dogs: Dog[]
+  loading: boolean
+  error: string | null
+  updateBreed: (breed: Breed['name']) => void
+  refreshDogs: () => void
 }
 
 export const useDogs = (): DogsHook => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
-  const { breed, setBreed, breeds, setBreeds } = useContext(DogsContext)
+  const {
+    breed,
+    breeds,
+    dogs,
+    loading,
+    error,
+    updateBreed,
+    updateDogs,
+    updateLoading,
+    updateError
+  } = useContext(DogsContext)
+
+  const refreshDogs = () => {
+    updateLoading(true)
+    updateError(null)
+
+    getDogs(breed)
+      .then(updateDogs)
+      .catch((err: Error) => {
+        updateError(err.message)
+      })
+      .finally(() => {
+        updateLoading(false)
+      })
+  }
 
   return {
-    loading,
-    setLoading,
-    error,
-    setError,
     breed,
-    setBreed,
     breeds,
-    setBreeds
+    dogs,
+    loading,
+    error,
+    updateBreed,
+    refreshDogs
   }
 }

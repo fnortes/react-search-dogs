@@ -1,10 +1,8 @@
-import { FC, lazy, Suspense, useCallback, useState } from 'react'
+import { FC, lazy, Suspense, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet'
 import Spinner from 'components/Spinner'
 import { useDogs } from 'hooks/useDogs'
-import { getDogs } from 'services/getDogs'
-import { Breed, Dog } from 'services/interfaces'
 import SearchForm from './components/Form'
 
 /**
@@ -14,27 +12,20 @@ import SearchForm from './components/Form'
 const LazyDogList = lazy(() => import('./components/DogList'))
 
 const Home: FC = () => {
-  const [dogs, setDogs] = useState<Dog[]>([])
-  const { loading, setLoading, error, setError } = useDogs()
+  const { dogs, loading, error, refreshDogs } = useDogs()
 
   const { t } = useTranslation()
 
-  const handleSubmit = useCallback(
-    (breed: Breed['name']) => {
-      setLoading(true)
-      setError(null)
-
-      getDogs(breed)
-        .then(setDogs)
-        .catch((err: Error) => {
-          setError(err.message)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    },
-    [setError, setLoading]
-  )
+  /**
+   * Habría sido mejor lanzar el "refreshDogs" desde el propio handlerSubmit del
+   * componente SearchForm. El ponerlo aquí ha sido simplemente por tener un
+   * ejemplo de uso del hook useCallback, que nos permite que, al pasarle un
+   * handler a un componente hijo por prop, este no se reenderice cuando se
+   * reenderice el padre, ya que el handler no va a cambiar nunca en realidad.
+   */
+  const handleSubmit = useCallback(() => {
+    refreshDogs()
+  }, [refreshDogs])
 
   return (
     <section className="App-page">
