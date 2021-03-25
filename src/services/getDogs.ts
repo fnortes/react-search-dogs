@@ -1,6 +1,22 @@
 import { API_URL } from './constants'
 import { Breed, Dog } from './interfaces'
 
+const messageToDogs = (message: []): Dog[] => {
+  return message.map((m: string) => {
+    const [protocol, , domain, path, breed, id] = m.split('/')
+    const [name, extension] = id.split('.')
+
+    return {
+      img: m,
+      protocol: `${protocol}//`,
+      domain,
+      path,
+      breed,
+      id: { name, extension }
+    }
+  })
+}
+
 export const getDogs = (breed: Breed['name']): Promise<Dog[]> => {
   return fetch(`${API_URL}/breed/${breed}/images`)
     .then((res) => {
@@ -14,18 +30,6 @@ export const getDogs = (breed: Breed['name']): Promise<Dog[]> => {
     .then((res) => {
       const { message } = res
 
-      return message.map((m: string) => {
-        const [protocol, , domain, path, breed, id] = m.split('/')
-        const [name, extension] = id.split('.')
-
-        return {
-          img: m,
-          protocol: `${protocol}//`,
-          domain,
-          path,
-          breed,
-          id: { name, extension }
-        }
-      })
+      return messageToDogs(message)
     })
 }

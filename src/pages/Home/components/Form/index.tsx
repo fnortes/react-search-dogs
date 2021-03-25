@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import Button from 'components/Button'
 import Spinner from 'components/Spinner'
 import { useDogs } from 'hooks/useDogs'
-
 interface Props {
   onSubmit: () => void
 }

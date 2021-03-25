@@ -1,6 +1,16 @@
 import { API_URL } from './constants'
 import { Breed } from './interfaces'
 
+const messageToBreeds = (message: string[]): Breed[] => {
+  const breeds: Breed[] = []
+
+  Object.keys(message).forEach((key: string) => {
+    breeds.push({ name: key, origins: message[key] })
+  })
+
+  return breeds
+}
+
 export const getBreeds = (): Promise<Breed[]> => {
   return fetch(`${API_URL}/breeds/list/all`)
     .then((res) => {
@@ -13,12 +23,7 @@ export const getBreeds = (): Promise<Breed[]> => {
     })
     .then((res) => {
       const { message } = res
-      const breeds: Breed[] = []
 
-      Object.keys(message).forEach((key) => {
-        breeds.push({ name: key, origins: message[key] })
-      })
-
-      return breeds
+      return messageToBreeds(message)
     })
 }

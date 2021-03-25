@@ -5,7 +5,11 @@
 import '@testing-library/jest-dom'
 
 jest.mock('react-i18next', () => ({
-  // this mock makes sure any components using the translate hook can use it without a warning being shown
+  /**
+   * Este mock es para los tests. Permite poder renderizar cualquier
+   * componente aunque utilice el hook useTranslation, devolviendo
+   * siempre la propia key de traducción.
+   */
   useTranslation: () => {
     return {
       t: (str: string) => str,
